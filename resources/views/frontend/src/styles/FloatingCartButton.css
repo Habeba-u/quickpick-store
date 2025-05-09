@@ -1,0 +1,86 @@
+.floating-cart-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  text-decoration: none;
+  background-color: #28a745; /* Green background */
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 60px; /* Fixed size for circle */
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[data-theme="dark"] .floating-cart-button {
+  background-color: #28a745; /* Keep green in dark mode */
+}
+
+.floating-cart-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.cart-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 30px;
+  height: 30px;
+  color: white; /* For Bootstrap icon; remove if using image */
+}
+
+/* Ensure the image is white in both light and dark modes */
+.cart-icon[src] {
+  filter: brightness(0) invert(1); /* Make image white */
+}
+
+[data-theme="dark"] .cart-icon[src] {
+  filter: brightness(0) invert(1); /* Keep white in dark mode */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #FC8A06; /* Orange badge */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[data-theme="dark"] .cart-badge {
+  background-color ▼: #FC8A06; /* Keep orange in dark mode */
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+  .floating-cart-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .cart-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    top: -8px;
+    right: -8px;
+  }
+}

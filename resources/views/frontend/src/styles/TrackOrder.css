@@ -1,0 +1,164 @@
+/* src/styles/TrackOrder.css */
+.track-order-page {
+  background-color: #fff;
+}
+
+[data-theme="dark"] .track-order-page {
+  background-color: #1a1a1a;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* RTL Adjustment for section-title */
+html[dir="rtl"] .section-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .section-title {
+  color: #e0e0e0;
+}
+
+.order-status-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* RTL Adjustment for order-status-title */
+html[dir="rtl"] .order-status-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .order-status-title {
+  color: #e0e0e0;
+}
+
+.tracking-timeline {
+  position: relative;
+}
+
+/* RTL Adjustment for tracking-timeline */
+html[dir="rtl"] .tracking-timeline {
+  flex-direction: row-reverse;
+}
+
+.tracking-step {
+  flex: 1;
+}
+
+.tracking-icon {
+  font-size: 1.5rem;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.tracking-icon.completed {
+  color: #28a745;
+}
+
+.tracking-status {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+/* RTL Adjustment for tracking-status */
+html[dir="rtl"] .tracking-status {
+  text-align: center;
+}
+
+[data-theme="dark"] .tracking-status {
+  color: #b0b0b0;
+}
+
+.tracking-date {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 0;
+}
+
+/* RTL Adjustment for tracking-date */
+html[dir="rtl"] .tracking-date {
+  text-align: center;
+}
+
+[data-theme="dark"] .tracking-date {
+  color: #888;
+}
+
+.progress-bar {
+  background-color: #28a745;
+}
+
+.product-item {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 10px;
+}
+
+/* RTL Adjustment for product-item */
+html[dir="rtl"] .product-item {
+  flex-direction: row-reverse;
+}
+
+.product-image-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  margin-inline: 0 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* RTL Adjustment for product-image-placeholder */
+html[dir="rtl"] .product-image-placeholder {
+  margin-inline: 0 10px;
+}
+
+[data-theme="dark"] .product-image-placeholder {
+  background-color: #444;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.2rem;
+  }
+  html[dir="rtl"] .section-title {
+    text-align: right;
+  }
+  .order-status-title {
+    font-size: 1rem;
+  }
+  html[dir="rtl"] .order-status-title {
+    text-align: right;
+  }
+  .tracking-icon {
+    font-size: 1.2rem;
+  }
+  .tracking-status {
+    font-size: 0.8rem;
+  }
+  html[dir="rtl"] .tracking-status {
+    text-align: center;
+  }
+  .tracking-date {
+    font-size: 0.7rem;
+  }
+  html[dir="rtl"] .tracking-date {
+    text-align: center;
+  }
+  .product-item {
+    flex-direction: column;
+    align-items: start;
+  }
+  html[dir="rtl"] .product-item {
+    flex-direction: column;
+    align-items: end;
+  }
+}

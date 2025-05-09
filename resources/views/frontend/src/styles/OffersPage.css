@@ -1,0 +1,304 @@
+/* src/styles/OffersPage.css */
+.offers-page {
+  background-color: #f8f9fa;
+}
+
+[data-theme="dark"] .offers-page {
+  background-color: #1a1a1a;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* RTL Adjustment for search-container */
+html[dir="rtl"] .search-container {
+  flex-direction: row-reverse;
+}
+
+.search-bar {
+  flex: 1;
+  border-radius: 20px 0 0 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #dee2e6;
+  border-right: none;
+}
+
+/* RTL Adjustment for search-bar */
+html[dir="rtl"] .search-bar {
+  border-radius: 0 20px 20px 0;
+  border-right: 1px solid #dee2e6;
+  border-left: none;
+}
+
+[data-theme="dark"] .search-bar {
+  border-color: #444;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+/* RTL Adjustment for search-bar in dark mode */
+html[dir="rtl"][data-theme="dark"] .search-bar {
+  border-right: 1px solid #444;
+  border-left: none;
+}
+
+.search-btn {
+  border-radius: 0 20px 20px 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #60ad4c;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* RTL Adjustment for search-btn */
+html[dir="rtl"] .search-btn {
+  border-radius: 20px 0 0 20px;
+}
+
+[data-theme="dark"] .search-btn {
+  background-color: #60ad4c;
+}
+
+.search-btn:hover {
+  background-color: #166802;
+}
+
+[data-theme="dark"] .search-btn:hover {
+  background-color: #166802;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 430px;
+  padding: 0px 20px;
+  border-radius: 15px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-1 {
+  background-image: url('../../public/assets/offer-banner1.jpeg');
+}
+
+.banner-2 {
+  background-image: url('../../public/assets/offer-banner2.jpeg');
+}
+
+.banner-3 {
+  background-image: url('../../public/assets/offer-banner3.jpeg');
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+[data-theme="dark"] .banner::before {
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay for dark mode */
+}
+
+.banner > * {
+  position: relative;
+  z-index: 2;
+}
+
+.offers-page .banner-title {
+  font-size: 2rem;
+  color: #fc8a06;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* RTL Adjustment for banner-title */
+html[dir="rtl"] .offers-page .banner-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .offers-page .banner-title {
+  color: #fc8a06; /* Keep orange */
+}
+
+.banner-text {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+/* RTL Adjustment for banner-text */
+html[dir="rtl"] .banner-text {
+  text-align: right;
+}
+
+[data-theme="dark"] .banner-text {
+  color: #e0e0e0;
+}
+
+.banner-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #60ad4c;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .banner-btn {
+  background-color: #60ad4c;
+}
+
+.banner-btn:hover {
+  background-color: #166802;
+  color: #fff;
+}
+
+[data-theme="dark"] .banner-btn:hover {
+  background-color: #166802;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* RTL Adjustment for section-title */
+html[dir="rtl"] .section-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .section-title {
+  color: #e0e0e0;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+[data-theme="dark"] .product-link {
+  color: #e0e0e0;
+}
+
+.product-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .product-card {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  height: 150px;
+  object-fit: contain;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+[data-theme="dark"] .product-name {
+  color: #e0e0e0;
+}
+
+.offers-page .product-price {
+  font-size: 1rem;
+  color: #28a745;
+  text-align: center;
+}
+
+[data-theme="dark"] .offers-page .product-price {
+  color: #28a745; /* Keep green */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .search-container {
+    max-width: 100%;
+  }
+  html[dir="rtl"] .search-container {
+    flex-direction: row-reverse;
+  }
+  .search-bar {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  html[dir="rtl"] .search-bar {
+    border-radius: 0 20px 20px 0;
+    border-right: 1px solid #dee2e6;
+    border-left: none;
+  }
+  html[dir="rtl"][data-theme="dark"] .search-bar {
+    border-right: 1px solid #444;
+    border-left: none;
+  }
+  .search-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+  html[dir="rtl"] .search-btn {
+    border-radius: 20px 0 0 20px;
+  }
+  .banner {
+    height: 300px;
+  }
+  .offers-page .banner-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  html[dir="rtl"] .offers-page .banner-title {
+    text-align: right;
+  }
+  .banner-text {
+    font-size: 0.9rem;
+  }
+  html[dir="rtl"] .banner-text {
+    text-align: right;
+  }
+  .banner-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+  html[dir="rtl"] .section-title {
+    text-align: right;
+  }
+  .product-name {
+    font-size: 1rem;
+  }
+  .offers-page .product-price {
+    font-size: 0.9rem;
+  }
+}

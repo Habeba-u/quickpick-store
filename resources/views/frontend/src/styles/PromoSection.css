@@ -1,0 +1,136 @@
+/* src/styles/PromoSection.css */
+.promo-section {
+  background-color: #fff;
+}
+
+[data-theme="dark"] .promo-section {
+  background-color: #1a1a1a;
+}
+
+.promo-card {
+  position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+/* RTL Adjustment for promo-card */
+html[dir="rtl"] .promo-card {
+  text-align: right;
+}
+
+.promo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(245.7deg, rgba(255, 255, 255, 0) 0.94%, rgba(3, 8, 31, 0.19) 51.68%, rgba(3, 8, 31, 0.89) 87.9%);
+  z-index: 0;
+}
+
+/* RTL Adjustment for gradient */
+html[dir="rtl"] .promo-card::before {
+  background: linear-gradient(114.3deg, rgba(255, 255, 255, 0) 0.94%, rgba(3, 8, 31, 0.19) 51.68%, rgba(3, 8, 31, 0.89) 87.9%);
+}
+
+.promo-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-section .badge {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  background-color: #fff;
+  color: #000;
+  padding: 18px 15px;
+  border-radius: 0 0 5px 5px;
+  font-size: 16px;
+  z-index: 1;
+}
+
+/* RTL Adjustment for badge */
+html[dir="rtl"] .promo-section .badge {
+  left: auto;
+  right: 20px;
+}
+
+[data-theme="dark"] .promo-section .badge {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.promo-title {
+  font-size: 18px;
+  width: 70%;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .promo-title {
+  color: #fff;
+}
+
+.promo-button {
+  background-color: #ff9900 !important;
+  border-color: #ff9900 !important;
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 10px 40px;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+/* RTL Adjustment for promo-button */
+html[dir="rtl"] .promo-button {
+  align-self: flex-end;
+}
+
+[data-theme="dark"] .promo-button {
+  background-color: #ff9900 !important;
+  border-color: #ff9900 !important;
+}
+
+.promo-button:hover {
+  background-color: #e68a00 !important;
+  color: #000 !important;
+  border-color: #e68a00 !important;
+}
+
+[data-theme="dark"] .promo-button:hover {
+  background-color: #e68a00 !important;
+  color: #000 !important;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .promo-card {
+    height: 300px;
+  }
+  .promo-title {
+    font-size: 1.2rem;
+  }
+  .promo-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  .promo-section .badge {
+    font-size: 12px;
+    padding: 14px 8px;
+  }
+  html[dir="rtl"] .promo-section .badge {
+    left: auto;
+    right: 20px;
+  }
+}

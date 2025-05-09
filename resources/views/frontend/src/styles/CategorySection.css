@@ -1,0 +1,167 @@
+/* src/styles/CategorySection.css */
+.category-page {
+  background-color: #f8f9fa;
+}
+
+[data-theme="dark"] .category-page {
+  background-color: #1a1a1a;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+[data-theme="dark"] .breadcrumb {
+  color: #b0b0b0;
+}
+
+.breadcrumb-link {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .breadcrumb-link {
+  color: #b0b0b0;
+}
+
+.breadcrumb-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .breadcrumb-link:hover {
+  color: #4a90e2;
+}
+
+.breadcrumb-separator {
+  margin: 0 5px;
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+[data-theme="dark"] .category-title {
+  color: #e0e0e0;
+}
+
+.sort-label {
+  font-size: 1rem;
+  color: #333;
+  margin-right: 10px;
+}
+
+[data-theme="dark"] .sort-label {
+  color: #e0e0e0;
+}
+
+.sort-select {
+  width: 200px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+[data-theme="dark"] .sort-select {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+.filter-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .filter-title {
+  color: #e0e0e0;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border-radius: 20px;
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+[data-theme="dark"] .filter-btn.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.filter-btn.btn-outline-dark {
+  border-color: #dee2e6;
+  color: #333;
+}
+
+[data-theme="dark"] .filter-btn.btn-outline-dark {
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.price-input {
+  width: 80px;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .price-input {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+.apply-filters-btn {
+  width: 100%;
+  border-radius: 20px;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.product-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .product-card {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.product-image {
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .product-name {
+  color: #e0e0e0;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #28a745;
+}
+
+[data-theme="dark"] .product-price {
+  color: #28a745;
+}

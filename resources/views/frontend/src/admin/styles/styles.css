@@ -1,0 +1,313 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+    color: #6c757d;
+}
+
+.sidebar .nav-link.active {
+    background-color: #e9ecef;
+    color: #000;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popular-product img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+}
+
+.breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.badge {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* New Styles for Admin Orders Page */
+.admin-orders-page .table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.admin-orders-page .table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.admin-orders-page .table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-orders-page .table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.admin-orders-page .table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.admin-orders-page .badge-status {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.badge-status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-status.processing {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.badge-status.shipped {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-status.delivered {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-status.cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.badge-status.paid {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-status.failed {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.admin-orders-page .btn-action {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.admin-orders-page .btn-action:hover {
+    transform: translateY(-1px);
+}
+
+.admin-orders-page .dropdown-menu {
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-orders-page .dropdown-item {
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-orders-page .dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+.admin-orders-page .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #e0e0e0;
+}
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.image-preview {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.admin-promotions-page .table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .admin-promotions-page .table thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .admin-promotions-page .table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .admin-promotions-page .table tbody tr {
+    transition: background-color 0.3s ease;
+  }
+
+  .admin-promotions-page .table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+
+  .admin-promotions-page .badge-status {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+
+  .badge-status.active {
+    background-color: #388923;
+    color: #fff;
+}
+
+  .badge-status.inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .admin-settings-page .card {
+    transition: transform 0.2s;
+}
+.admin-settings-page .card:hover {
+    transform: translateY(-5px);
+}
+.admin-settings-page .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.admin-settings-page .btn-primary {
+    width: 100%;
+}
+
+  .admin-promotions-page .btn-action {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .admin-promotions-page .btn-action:hover {
+    transform: translateY(-1px);
+  }
+  .sidebar {
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+  }
+
+  .sidebar-title {
+    color: #007bff;
+    font-weight: 700;
+    padding: 10px 0;
+  }
+
+  .sidebar .nav-link {
+    color: #6c757d;
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar .nav-link:hover {
+    background-color: #f1f1f1;
+    color: #000;
+  }
+
+  .sidebar .nav-link.active {
+    background-color: #e9ecef;
+    color: #007bff;
+    font-weight: 600;
+  }
+
+  .sidebar .nav-link svg {
+    font-size: 18px;
+  }
+
+  .sidebar .nav-link.btn-link {
+    color: #dc3545;
+  }
+
+  .sidebar .nav-link.btn-link:hover {
+    background-color: #f8d7da;
+    color: #dc3545;
+  }

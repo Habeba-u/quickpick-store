@@ -1,0 +1,110 @@
+/* src/styles/PromoBannerSection.css */
+.promo-banner-section {
+  background-image: url('../../public/assets/promo-banner-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+}
+
+[data-theme="dark"] .promo-banner-section {
+  background-image: url('../../public/assets/promo-banner-image.png'); /* Same image, adjust if dark version exists */
+}
+
+.promo-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+[data-theme="dark"] .promo-text {
+  color: #e0e0e0;
+}
+
+.promo-banner-section .row {
+  height: 290px;
+  align-items: flex-end;
+}
+
+.app-store-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.store-button {
+  width: 150px;
+  height: auto;
+}
+
+/* Responsiveness */
+@media (max-width: 1400px) {
+  .promo-banner-section {
+    padding: 0px 14px;
+    min-height: 490px;
+  }
+}
+
+@media (max-width: 1290px) {
+  .promo-banner-section {
+    padding: 0px 14px;
+    min-height: 490px;
+  }
+  .promo-banner-section .row {
+    height: 200px;
+  }
+  .app-store-buttons {
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+  }
+  .promo-banner-section .store-button {
+    width: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .promo-banner-section {
+    padding: 0px 14px;
+    min-height: 300px;
+  }
+  .promo-banner-section .row {
+    height: 150px;
+  }
+  .app-store-buttons {
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+  }
+  .promo-banner-section .store-button {
+    width: 100px;
+  }
+}
+
+@media (max-width: 770px) {
+  .promo-banner-section {
+    min-height: 300px;
+  }
+  .promo-text {
+    align-items: flex-end;
+  }
+  .promo-banner-section .row .col-md-4 {
+    justify-items: end;
+  }
+  .app-store-buttons {
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  .store-button {
+    width: 120px;
+  }
+}
+
+@media (max-width: 558px) {
+  .promo-banner-section {
+    min-height: 180px;
+  }
+}

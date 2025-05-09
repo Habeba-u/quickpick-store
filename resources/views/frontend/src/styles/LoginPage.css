@@ -1,0 +1,346 @@
+/* src/styles/LoginPage.css */
+.login-page {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+[data-theme="dark"] .login-page {
+  background-color: #1a1a1a;
+}
+
+.login-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+.login-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1a3c34;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* RTL Adjustment for login-title */
+html[dir="rtl"] .login-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .login-title {
+  color: #e0e0e0;
+}
+
+.quickpick-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.inline-logo {
+  width: 250px;
+  margin-top: 20px;
+}
+
+.login-title sup {
+  font-size: 0.8rem;
+  vertical-align: super;
+}
+
+.login-input {
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+/* RTL Adjustment for login-input */
+html[dir="rtl"] .login-input {
+  text-align: right;
+}
+
+[data-theme="dark"] .login-input {
+  border-color: #444;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.login-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+[data-theme="dark"] .login-input:focus {
+  border-color: #28a745;
+}
+
+.forgot-password-link {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+/* RTL Adjustment for forgot-password-link */
+html[dir="rtl"] .forgot-password-link {
+  text-align: right;
+}
+
+[data-theme="dark"] .forgot-password-link {
+  color: #b0b0b0;
+}
+
+.forgot-password-link:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .forgot-password-link:hover {
+  color: #ff9900;
+}
+
+.login-button {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+[data-theme="dark"] .login-button {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+
+.login-button:hover {
+  background-color: #218838 !important;
+  border-color: #218838 !important;
+}
+
+[data-theme="dark"] .login-button:hover {
+  background-color: #218838 !important;
+  border-color: #218838 !important;
+}
+
+.separator {
+  text-align: center;
+  position: relative;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* RTL Adjustment for separator */
+html[dir="rtl"] .separator {
+  text-align: center;
+}
+
+[data-theme="dark"] .separator {
+  color: #b0b0b0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #dee2e6;
+}
+
+/* RTL Adjustment for separator lines */
+html[dir="rtl"] .separator::before {
+  right: 0;
+}
+
+html[dir="rtl"] .separator::after {
+  left: 0;
+}
+
+[data-theme="dark"] .separator::before,
+[data-theme="dark"] .separator::after {
+  background-color: #444;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* RTL Adjustment for social-login */
+html[dir="rtl"] .social-login {
+  flex-direction: row;
+}
+
+.social-button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 1px solid #ccc !important;
+  background-color: #fff;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .social-button {
+  border-color: #444 !important;
+  background-color: #2c2c2c;
+}
+
+.social-button.google {
+  color: #DB4437;
+}
+
+[data-theme="dark"] .social-button.google {
+  color: #DB4437;
+}
+
+.social-button.google:hover {
+  border-color: #DB4437 !important;
+  background-color: #DB4437;
+  color: #fff;
+}
+
+[data-theme="dark"] .social-button.google:hover {
+  border-color: #DB4437 !important;
+  background-color: #DB4437;
+}
+
+.social-button.facebook {
+  color: #4267B2;
+}
+
+[data-theme="dark"] .social-button.facebook {
+  color: #4267B2;
+}
+
+.social-button.facebook:hover {
+  border-color: #4267B2 !important;
+  background-color: #4267B2;
+  color: #fff;
+}
+
+[data-theme="dark"] .social-button.facebook:hover {
+  border-color: #4267B2 !important;
+  background-color: #4267B2;
+}
+
+.social-button.apple {
+  color: #000;
+}
+
+[data-theme="dark"] .social-button.apple {
+  color: #e0e0e0;
+}
+
+.social-button.apple:hover {
+  border-color: #000 !important;
+  color: #fff;
+}
+
+[data-theme="dark"] .social-button.apple:hover {
+  border-color: #e0e0e0 !important;
+  background-color: #444;
+}
+
+.register-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* RTL Adjustment for register-text */
+html[dir="rtl"] .register-text {
+  text-align: right;
+}
+
+[data-theme="dark"] .register-text {
+  color: #b0b0b0;
+}
+
+.register-link {
+  color: #28a745;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+[data-theme="dark"] .register-link {
+  color: #28a745;
+}
+
+.register-link:hover {
+  color: #218838;
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .register-link:hover {
+  color: #218838;
+}
+
+.login-image-col {
+  background-color: #ff9900;
+  height: 100vh;
+  padding: 0px;
+}
+
+[data-theme="dark"] .login-image-col {
+  background-color: #ff9900;
+}
+
+.login-image {
+  max-width: 100%;
+  height: 90%;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .login-page {
+    min-height: auto;
+  }
+  .login-form {
+    padding: 30px 15px;
+  }
+  .login-title {
+    font-size: 1.5rem;
+  }
+  html[dir="rtl"] .login-title {
+    text-align: right;
+  }
+  .login-title sup {
+    font-size: 0.6rem;
+  }
+  .login-input {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  html[dir="rtl"] .login-input {
+    text-align: right;
+  }
+  .login-button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  .forgot-password-link {
+    font-size: 0.8rem;
+  }
+  html[dir="rtl"] .forgot-password-link {
+    text-align: right;
+  }
+  .separator {
+    font-size: 0.9rem;
+  }
+  .social-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .register-text {
+    font-size: 0.8rem;
+  }
+  html[dir="rtl"] .register-text {
+    text-align: right;
+  }
+}

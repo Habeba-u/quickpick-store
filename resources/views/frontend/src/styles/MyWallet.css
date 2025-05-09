@@ -1,0 +1,394 @@
+/* src/styles/MyWallet.css */
+.my-wallet-page {
+  background-color: #fff;
+  color: #333;
+}
+
+[data-theme="dark"] .my-wallet-page {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* RTL Adjustment for section-title */
+html[dir="rtl"] .section-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .section-title {
+  color: #ffffff;
+}
+
+.my-account-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+[data-theme="dark"] .my-account-section {
+  background-color: #2c2c2c;
+}
+
+/* Wallet Balance Section */
+.wallet-balance {
+  text-align: center;
+}
+
+/* RTL Adjustment for wallet-balance */
+html[dir="rtl"] .wallet-balance {
+  text-align: center;
+}
+
+.wallet-balance h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* RTL Adjustment for wallet-balance h4 */
+html[dir="rtl"] .wallet-balance h4 {
+  text-align: right;
+}
+
+[data-theme="dark"] .wallet-balance h4 {
+  color: #cccccc;
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* RTL Adjustment for balance-amount */
+html[dir="rtl"] .balance-amount {
+  text-align: right;
+}
+
+[data-theme="dark"] .balance-amount {
+  color: #ffffff;
+}
+
+.wallet-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* RTL Adjustment for wallet-actions */
+html[dir="rtl"] .wallet-actions {
+  justify-content: flex-end;
+}
+
+.action-btn {
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.action-btn.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.action-btn.btn-success:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+
+[data-theme="dark"] .action-btn.btn-success {
+  background-color: #2e7d32;
+  border-color: #2e7d32;
+}
+
+[data-theme="dark"] .action-btn.btn-success:hover {
+  background-color: #388e3c;
+  border-color: #388e3c;
+}
+
+.action-btn.btn-warning {
+  background-color: #ff9900;
+  border-color: #ff9900;
+  color: #000;
+}
+
+.action-btn.btn-warning:hover {
+  background-color: #e68a00;
+  border-color: #e68a00;
+}
+
+[data-theme="dark"] .action-btn.btn-warning {
+  background-color: #f57c00;
+  border-color: #f57c00;
+  color: #000000;
+}
+
+[data-theme="dark"] .action-btn.btn-warning:hover {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+}
+
+/* Transaction History Section */
+.transaction-history h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* RTL Adjustment for transaction-history h4 */
+html[dir="rtl"] .transaction-history h4 {
+  text-align: right;
+}
+
+[data-theme="dark"] .transaction-history h4 {
+  color: #cccccc;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  background-color: #f8f9fa;
+}
+
+/* RTL Adjustment for transaction-item */
+html[dir="rtl"] .transaction-item {
+  flex-direction: row-reverse;
+}
+
+[data-theme="dark"] .transaction-item {
+  border: 1px solid #444444;
+  background-color: #333333;
+}
+
+.transaction-icon {
+  font-size: 1.5rem;
+}
+
+/* RTL Adjustment for transaction-icon */
+html[dir="rtl"] .transaction-icon {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+.transaction-details {
+  flex-grow: 1;
+}
+
+/* RTL Adjustment for transaction-details */
+html[dir="rtl"] .transaction-details {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+.transaction-type {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.2rem;
+}
+
+/* RTL Adjustment for transaction-type */
+html[dir="rtl"] .transaction-type {
+  text-align: right;
+}
+
+[data-theme="dark"] .transaction-type {
+  color: #e0e0e0;
+}
+
+.transaction-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* RTL Adjustment for transaction-date */
+html[dir="rtl"] .transaction-date {
+  text-align: right;
+}
+
+[data-theme="dark"] .transaction-date {
+  color: #aaaaaa;
+}
+
+.transaction-amount {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* RTL Adjustment for transaction-amount */
+html[dir="rtl"] .transaction-amount {
+  text-align: right;
+}
+
+.transaction-amount .text-success {
+  color: #28a745;
+}
+
+[data-theme="dark"] .transaction-amount .text-success {
+  color: #4caf50;
+}
+
+.transaction-amount .text-warning {
+  color: #ff9900;
+}
+
+[data-theme="dark"] .transaction-amount .text-warning {
+  color: #ff9800;
+}
+
+.transaction-amount .text-primary {
+  color: #007bff;
+}
+
+[data-theme="dark"] .transaction-amount .text-primary {
+  color: #42a5f5;
+}
+
+/* Modal Styles */
+.modal-content {
+  background-color: #fff;
+  color: #333;
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* RTL Adjustment for modal-header */
+html[dir="rtl"] .modal-header {
+  text-align: right;
+}
+
+[data-theme="dark"] .modal-header {
+  border-bottom: 1px solid #444444;
+}
+
+.modal-title {
+  color: #333;
+}
+
+/* RTL Adjustment for modal-title */
+html[dir="rtl"] .modal-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .modal-title {
+  color: #ffffff;
+}
+
+.modal-footer {
+  border-top: 1px solid #e0e0e0;
+}
+
+[data-theme="dark"] .modal-footer {
+  border-top: 1px solid #444444;
+}
+
+.form-control {
+  background-color: #fff;
+  color: #333;
+  border-color: #ced4da;
+}
+
+/* RTL Adjustment for form-control */
+html[dir="rtl"] .form-control {
+  text-align: right;
+}
+
+[data-theme="dark"] .form-control {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #555555;
+}
+
+.form-control:focus {
+  background-color: #fff;
+  color: #333;
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+  border-color: #777777;
+  box-shadow: 0 0 5px rgba(119, 119, 119, 0.5);
+}
+
+.form-label {
+  color: #333;
+}
+
+/* RTL Adjustment for form-label */
+html[dir="rtl"] .form-label {
+  text-align: right;
+}
+
+[data-theme="dark"] .form-label {
+  color: #cccccc;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+[data-theme="dark"] .alert-success {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-color: #2e7d32;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+[data-theme="dark"] .alert-danger {
+  background-color: #d32f2f;
+  color: #ffffff;
+  border-color: #d32f2f;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background-color: #555555;
+  border-color: #555555;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background-color: #666666;
+  border-color: #666666;
+}

@@ -1,0 +1,545 @@
+[
+  {
+    "id": 1,
+    "name": "Orange Juice - Freshly Squeezed",
+    "name_ar": "عصير برتقال - معصور طازج",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "45.00 LE",
+    "image": "/assets/product-1.jpg",
+    "image2": "/assets/product-3.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Green Tea - Mint Flavor",
+    "name_ar": "شاي أخضر - نكهة نعناع",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "80.00 LE",
+    "image": "/assets/product-2.jpg",
+    "image2": "/assets/product-4.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sparkling Water - Lemon",
+    "name_ar": "مياه فوارة - ليمون",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "25.50 LE",
+    "image": "/assets/product-3.jpg",
+    "image2": "/assets/product-5.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Espresso Coffee - Dark Roast",
+    "name_ar": "قهوة إسبريسو - تحميص غامق",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "150.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Mango Smoothie - 500ml",
+    "name_ar": "سموثي مانجو - 500 مل",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "60.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Cola - Zero Sugar",
+    "name_ar": "كولا - بدون سكر",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "20.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Herbal Tea - Chamomile",
+    "name_ar": "شاي أعشاب - بابونج",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "90.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Apple Cider - Organic",
+    "name_ar": "عصير تفاح - عضوي",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "55.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Energy Drink - Citrus",
+    "name_ar": "مشروب طاقة - حمضيات",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "35.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Coconut Water - 1L",
+    "name_ar": "ماء جوز الهند - 1 لتر",
+    "category": "Beverages",
+    "category_ar": "مشروبات",
+    "price": "70.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Salmon Fillet - Fresh",
+    "name_ar": "فيليه سلمون - طازج",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "220.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Shrimp - Large",
+    "name_ar": "جمبري - كبير",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "180.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Tuna Steak - 500g",
+    "name_ar": "ستيك تونة - 500 جم",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "190.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Crab Legs - Frozen",
+    "name_ar": "أرجل السلطعون - مجمدة",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "250.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Sardines - Canned",
+    "name_ar": "سردين - معلب",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "40.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Mackerel - Fresh",
+    "name_ar": "ماكريل - طازج",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "130.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Cod Fillet - 400g",
+    "name_ar": "فيليه سمك القد - 400 جم",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "200.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Calamari Rings - Frozen",
+    "name_ar": "حلقات كالاماري - مجمدة",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "160.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Anchovies - Salted",
+    "name_ar": "أنشوجة - مملحة",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "50.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Tilapia - Whole",
+    "name_ar": "بلطي - كامل",
+    "category": "Seafood",
+    "category_ar": "مأكولات بحرية",
+    "price": "110.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Chicken Breast - 1kg",
+    "name_ar": "صدر دجاج - 1 كجم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "120.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Beef Steak - Sirloin",
+    "name_ar": "ستيك لحم بقري - سيرلوين",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "280.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Turkey Slices - 500g",
+    "name_ar": "شرائح ديك رومي - 500 جم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "150.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Lamb Chops - Fresh",
+    "name_ar": "قطع لحم خروف - طازجة",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "300.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Pork Sausages - 400g",
+    "name_ar": "سجق خنزير - 400 جم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "90.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Ground Beef - 1kg",
+    "name_ar": "لحم بقري مفروم - 1 كجم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "200.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Chicken Thighs - 800g",
+    "name_ar": "أفخاذ دجاج - 800 جم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "100.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Beef Ribs - 1kg",
+    "name_ar": "أضلاع لحم بقري - 1 كجم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "260.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Duck Breast - 500g",
+    "name_ar": "صدر بط - 500 جم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "180.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Chicken Wings - 1kg",
+    "name_ar": "أجنحة دجاج - 1 كجم",
+    "category": "Meat & Poultry",
+    "category_ar": "لحوم ودجاج",
+    "price": "80.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 31,
+    "name": "White Bread - Sliced",
+    "name_ar": "خبز أبيض - مقطع",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "15.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Croissant - Butter",
+    "name_ar": "كرواسون - زبدة",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "25.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Whole Wheat Bread",
+    "name_ar": "خبز القمح الكامل",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "20.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Bagel - Sesame",
+    "name_ar": "بيجل - سمسم",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "18.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Muffin - Chocolate",
+    "name_ar": "مافن - شokolادة",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "30.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Sourdough Bread",
+    "name_ar": "خبز العجين المخمر",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "35.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Donut - Glazed",
+    "name_ar": "دونات - مزجج",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "12.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Pretzel - Salted",
+    "name_ar": "بريتزل - مملح",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "22.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Pita Bread - 6 Pieces",
+    "name_ar": "خبز بيتا - 6 قطع",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "10.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Baguette - French",
+    "name_ar": "باغيت - فرنسي",
+    "category": "Bakery",
+    "category_ar": "مخبوزات",
+    "price": "28.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Cheddar Cheese - 200g",
+    "name_ar": "جبن شيدر - 200 جم",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "65.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Yogurt - Greek Style",
+    "name_ar": "زبادي - على الطريقة اليونانية",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "30.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Butter - Unsalted",
+    "name_ar": "زبدة - غير مملحة",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "50.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Mozzarella Cheese - 250g",
+    "name_ar": "جبن موزاريلا - 250 جم",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "70.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Milk - Low Fat, 1L",
+    "name_ar": "حليب - قليل الدسم، 1 لتر",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "35.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Cream Cheese - 200g",
+    "name_ar": "جبن كريمي - 200 جم",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "45.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Feta Cheese - 150g",
+    "name_ar": "جبن فيتا - 150 جم",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "40.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Sour Cream - 200ml",
+    "name_ar": "كريمة حامضة - 200 مل",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "25.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Parmesan Cheese - 100g",
+    "name_ar": "جبن بارميزان - 100 جم",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "80.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Gouda Cheese - 200g",
+    "name_ar": "جبن جودة - 200 جم",
+    "category": "Dairy",
+    "category_ar": "منتجات ألبان",
+    "price": "60.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 51,
+    "name": "Apples - Red, 1kg",
+    "name_ar": "تفاح - أحمر، 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "40.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Carrots - 1kg",
+    "name_ar": "جزر - 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "15.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Bananas - 1kg",
+    "name_ar": "موز - 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "30.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 54,
+    "name": "Broccoli - 500g",
+    "name_ar": "بروكلي - 500 جم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "25.00 LE",
+    "image": "/assets/product-6.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Oranges - 1kg",
+    "name_ar": "برتقال - 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "35.00 LE",
+    "image": "/assets/product-1.jpg"
+  },
+  {
+    "id": 56,
+    "name": "Tomatoes - 1kg",
+    "name_ar": "طماطم - 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "20.00 LE",
+    "image": "/assets/product-2.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Strawberries - 250g",
+    "name_ar": "فراولة - 250 جم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "50.00 LE",
+    "image": "/assets/product-3.jpg"
+  },
+  {
+    "id": 58,
+    "name": "Spinach - 500g",
+    "name_ar": "سبانخ - 500 جم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "18.00 LE",
+    "image": "/assets/product-4.jpg"
+  },
+  {
+    "id": 59,
+    "name": "Mangoes - 1kg",
+    "name_ar": "مانجو - 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "60.00 LE",
+    "image": "/assets/product-5.jpg"
+  },
+  {
+    "id": 60,
+    "name": "Potatoes - 1kg",
+    "name_ar": "بطاطس - 1 كجم",
+    "category": "Fruits and Vegetables",
+    "category_ar": "فواكه وخضروات",
+    "price": "12.00 LE",
+    "image": "/assets/product-6.jpg"
+  }
+]

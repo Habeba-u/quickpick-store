@@ -1,0 +1,59 @@
+/* src/styles/Main.css */
+body {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  [data-theme="dark"] body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  a {
+    color: #28a745;
+  }
+
+  a:hover {
+    color: #218838;
+  }
+  label{
+    color: #000; 
+  }
+  [data-theme="dark"] label {
+    color: #fff; 
+  }
+  [data-theme="dark"] .card-body{
+    background-color: #000;
+    color: #fff;
+  }
+  input::placeholder,
+textarea::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #fff !important; 
+  opacity: 1;
+}
+ 
+
+
+[data-theme="dark"] .form-control{
+  background-color: #000;
+  color: #fff;
+}
+[data-theme="dark"] .navbar-toggler{
+  filter: invert(100%) brightness(200%);
+}
+[data-theme="dark"] .navbar-toggler-icon{
+  color: #fff;
+}
+
+  @media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1523px;
+    }
+}

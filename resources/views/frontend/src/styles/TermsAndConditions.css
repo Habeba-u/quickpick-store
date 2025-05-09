@@ -1,0 +1,124 @@
+.terms-page {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+[data-theme="dark"] .terms-page {
+  background-color: #1a1a1a;
+}
+
+.terms-header {
+  padding: 15px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .terms-header {
+  background-color: #2c2c2c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.terms-logo {
+  height: 40px;
+}
+
+.login-button {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  border-radius: 20px !important;
+  padding: 8px 20px;
+}
+
+/* Light mode text colors */
+.terms-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+[data-theme="dark"] .terms-title {
+  color: #ddd;
+}
+
+.terms-welcome {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+[data-theme="dark"] .terms-welcome {
+  color: #bbb;
+}
+
+.terms-welcome a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .terms-welcome a {
+  color: #34c759;
+}
+
+.terms-welcome a:hover {
+  text-decoration: underline;
+}
+
+/* Accordion Styling */
+.accordion-item {
+  margin-bottom: 10px;
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background-color: #e6f4ea !important;
+  border: none !important;
+}
+
+[data-theme="dark"] .accordion-header {
+  background-color: #1a8754 !important;
+}
+
+.accordion-button {
+  background-color: #e6f4ea !important;
+  color: #333 !important;
+  font-weight: bold !important;
+  padding: 15px !important;
+  border-radius: 8px !important;
+}
+
+[data-theme="dark"] .accordion-button {
+  background-color: #1a8754 !important;
+  color: #ddd !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #e6f4ea !important;
+  color: #333 !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+  background-color: #1a8754 !important;
+  color: #ddd !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.accordion-body {
+  background-color: #fff !important;
+  color: #555 !important;
+  padding: 20px !important;
+  border-radius: 0 0 8px 8px !important;
+}
+
+[data-theme="dark"] .accordion-body {
+  background-color: #2c2c2c !important;
+  color: #bbb !important;
+}

@@ -1,0 +1,227 @@
+/* src/styles/HowItWorksSection.css */
+.how-it-works-div {
+  background-color: #f8f9fa;
+  padding: 130px;
+}
+
+[data-theme="dark"] .how-it-works-div {
+  background-color: #1a1a1a;
+}
+
+.how-it-works-section {
+  background-color: #fff;
+  padding: 40px 10px;
+}
+
+[data-theme="dark"] .how-it-works-section {
+  background-color: #1a1a1a;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+}
+
+/* RTL Adjustment for section title */
+html[dir="rtl"] .section-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .section-title {
+  color: #e0e0e0;
+}
+
+.nav-pills .nav-link {
+  background-color: transparent;
+  color: #000;
+  font-size: 14px;
+  border-radius: 120px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* RTL Adjustment for nav-link */
+html[dir="rtl"] .nav-pills .nav-link {
+  text-align: right;
+}
+
+[data-theme="dark"] .nav-pills .nav-link {
+  color: #e0e0e0;
+}
+
+.how-it-works-section .nav-pills .nav-link.active {
+  text-align: center;
+  font-size: 14px;
+  border-radius: 120px;
+  background-color: #ff9900;
+  color: #000;
+  border-color: #ff9900;
+}
+
+/* RTL Adjustment for active nav-link */
+html[dir="rtl"] .how-it-works-section .nav-pills .nav-link.active {
+  text-align: right;
+}
+
+[data-theme="dark"] .how-it-works-section .nav-pills .nav-link.active {
+  background-color: #ff9900;
+  color: #000;
+}
+
+.how-it-works-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+  text-align: center;
+  padding: 30px 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .how-it-works-card {
+  background-color: #2c2c2c;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.how-it-works-div .category-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+[data-theme="dark"] .how-it-works-div .category-name {
+  color: #e0e0e0;
+}
+
+.card-image {
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: #000;
+  margin-top: 15px;
+}
+
+[data-theme="dark"] .card-subtitle {
+  color: #e0e0e0;
+}
+
+.large-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #D9D9D9;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .large-card {
+  background-color: #2c2c2c;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.large-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* RTL Adjustment for large-card-title */
+html[dir="rtl"] .large-card-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .large-card-title {
+  color: #e0e0e0;
+}
+
+.large-card-description {
+  font-size: 16px;
+  color: #000;
+  padding-top: 25px;
+  width: 65%;
+}
+
+/* RTL Adjustment for large-card-description */
+html[dir="rtl"] .large-card-description {
+  text-align: right;
+}
+
+[data-theme="dark"] .large-card-description {
+  color: #e0e0e0;
+}
+
+.large-card-image {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  transform: scale(-1, 1);
+}
+
+.description {
+  font-size: 1rem;
+  color: #000;
+  text-align: center;
+  margin-top: 20px;
+}
+
+[data-theme="dark"] .description {
+  color: #e0e0e0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .how-it-works-div {
+    padding: 50px;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+  .nav-pills .nav-link {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  html[dir="rtl"] .nav-pills .nav-link {
+    text-align: right;
+  }
+  .how-it-works-card {
+    padding: 15px;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+  .card-image {
+    height: 120px;
+  }
+  .card-subtitle {
+    font-size: 0.8rem;
+  }
+  .large-card {
+    padding: 15px;
+  }
+  .large-card-title {
+    font-size: 1.2rem;
+  }
+  html[dir="rtl"] .large-card-title {
+    text-align: right;
+  }
+  .large-card-description {
+    font-size: 0.9rem;
+  }
+  html[dir="rtl"] .large-card-description {
+    text-align: right;
+  }
+  .large-card-image {
+    max-height: 200px;
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+}

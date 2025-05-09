@@ -1,0 +1,193 @@
+/* src/styles/AccountSidebar.css (append) */
+
+/* Existing styles (unchanged) */
+.account-sidebar {
+  padding: 0;
+}
+
+.account-sidebar .nav-link {
+  background-color: transparent;
+  color: #000;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+html[dir="rtl"] .account-sidebar .nav-link {
+  text-align: right;
+}
+
+[data-theme="dark"] .account-sidebar .nav-link {
+  color: #e0e0e0;
+}
+
+.account-sidebar .nav-link.active {
+  background-color: #ff9900;
+  color: #000;
+  border-color: #ff9900;
+}
+
+[data-theme="dark"] .account-sidebar .nav-link.active {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+html[dir="rtl"] .account-sidebar {
+  direction: rtl;
+}
+
+@media (max-width: 768px) {
+  .account-sidebar .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  html[dir="rtl"] .account-sidebar .nav-link {
+    text-align: right;
+  }
+}
+
+/* New styles for logout modal */
+.logout-modal .modal-dialog {
+  max-width: 400px; /* Adjust width to match screenshot */
+}
+
+.logout-modal .modal-content {
+  background-color: #e6f4ea; /* Light green background as per screenshot */
+  border: none;
+  border-radius: 10px;
+}
+
+[data-theme="dark"] .logout-modal .modal-content {
+  background-color: #2c2c2c; /* Dark background for dark theme */
+}
+
+.logout-modal .modal-body {
+  padding: 20px;
+  text-align: center;
+}
+
+html[dir="rtl"] .logout-modal .modal-body {
+  text-align: center;
+}
+
+.logout-modal-content h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+[data-theme="dark"] .logout-modal-content h5 {
+  color: #e0e0e0;
+}
+
+html[dir="rtl"] .logout-modal-content h5 {
+  text-align: right;
+}
+
+.logout-modal-content p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+[data-theme="dark"] .logout-modal-content p {
+  color: #b0b0b0;
+}
+
+html[dir="rtl"] .logout-modal-content p {
+  text-align: right;
+}
+
+.logout-modal-btn {
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.logout-modal-btn.cancel-btn {
+  background-color: #28a745; /* Green background for Cancel button */
+  border-color: #28a745;
+  color: #fff;
+}
+
+[data-theme="dark"] .logout-modal-btn.cancel-btn {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+}
+
+.logout-modal-btn.cancel-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  border-color: #218838;
+}
+
+[data-theme="dark"] .logout-modal-btn.cancel-btn:hover {
+  background-color: #218838;
+  border-color: #218838;
+}
+
+.logout-modal-btn.confirm-btn {
+  background-color: transparent;
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+[data-theme="dark"] .logout-modal-btn.confirm-btn {
+  border-color: #e0e0e0;
+  color: #e0e0e0;
+}
+
+.logout-modal-btn.confirm-btn:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #fff;
+}
+
+[data-theme="dark"] .logout-modal-btn.confirm-btn:hover {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+  color: #333;
+}
+
+/* RTL Adjustment for buttons */
+html[dir="rtl"] .logout-modal-btn.cancel-btn {
+  margin-left: 10px;
+}
+
+html[dir="rtl"] .logout-modal-btn.confirm-btn {
+  margin-right: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .logout-modal .modal-dialog {
+    max-width: 300px;
+  }
+
+  .logout-modal-content h5 {
+    font-size: 1rem;
+  }
+
+  html[dir="rtl"] .logout-modal-content h5 {
+    text-align: right;
+  }
+
+  .logout-modal-content p {
+    font-size: 0.9rem;
+  }
+
+  html[dir="rtl"] .logout-modal-content p {
+    text-align: right;
+  }
+
+  .logout-modal-btn {
+    font-size: 0.9rem;
+    padding: 6px 15px;
+  }
+}

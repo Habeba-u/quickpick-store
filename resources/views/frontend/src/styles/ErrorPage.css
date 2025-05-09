@@ -1,0 +1,110 @@
+/* src/styles/ErrorPage.css */
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+[data-theme="dark"] .error-page {
+  background-color: #1a1a1a;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: bold;
+  color: #ff9900;
+  margin-bottom: 20px;
+}
+
+/* RTL Adjustment for error-code */
+html[dir="rtl"] .error-code {
+  text-align: right;
+}
+
+[data-theme="dark"] .error-code {
+  color: #ff9900;
+}
+
+.error-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a3c34;
+  margin-bottom: 15px;
+  text-transform: lowercase;
+}
+
+/* RTL Adjustment for error-title */
+html[dir="rtl"] .error-title {
+  text-align: right;
+}
+
+[data-theme="dark"] .error-title {
+  color: #e0e0e0;
+}
+
+.error-subtitle {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 30px;
+}
+
+/* RTL Adjustment for error-subtitle */
+html[dir="rtl"] .error-subtitle {
+  text-align: right;
+}
+
+[data-theme="dark"] .error-subtitle {
+  color: #b0b0b0;
+}
+
+.back-to-home-button {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+[data-theme="dark"] .back-to-home-button {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+
+.back-to-home-button:hover {
+  background-color: #218838 !important;
+  border-color: #218838 !important;
+}
+
+[data-theme="dark"] .back-to-home-button:hover {
+  background-color: #218838 !important;
+  border-color: #218838 !important;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 6rem;
+  }
+  html[dir="rtl"] .error-code {
+    text-align: right;
+  }
+  .error-title {
+    font-size: 1.5rem;
+  }
+  html[dir="rtl"] .error-title {
+    text-align: right;
+  }
+  .error-subtitle {
+    font-size: 1rem;
+  }
+  html[dir="rtl"] .error-subtitle {
+    text-align: right;
+  }
+  .back-to-home-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
