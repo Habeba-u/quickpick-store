@@ -1,6 +1,6 @@
 /* src/styles/PromoBannerSection.css */
 .promo-banner-section {
-  background-image: url('../../public/assets/promo-banner-image.png');
+  /* Remove: background-image: url('../../public/assets/promo-banner-image.png'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,10 +8,6 @@
   min-height: 650px;
   display: flex;
   align-items: center;
-}
-
-[data-theme="dark"] .promo-banner-section {
-  background-image: url('../../public/assets/promo-banner-image.png'); /* Same image, adjust if dark version exists */
 }
 
 .promo-text {

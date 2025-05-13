@@ -48,6 +48,15 @@ import AdminUserCreatePage from './admin/components/AdminUserCreatePage';
 import AdminUserEditPage from './admin/components/AdminUserEditPage';
 import AdminUserViewPage from './admin/components/AdminUserViewPage';
 import AdminPromotionsPage from './admin/components/AdminPromotionsPage';
+import Settings from './admin/components/Settings';
+import BannerSettings from './admin/components/BannerSettings';
+import PromoSectionSettings from './admin/components/PromoSectionSettings';
+import SearchSliderSettings from './admin/components/SearchSliderSettings';
+import OffersPageSettings from './admin/components/OffersPageSettings';
+import HowItWorksSectionSettings from './admin/components/HowItWorksSectionSettings';
+import PromoBannerSectionSettings from './admin/components/PromoBannerSectionSettings';
+import PolicyPagesSettings from './admin/components/PolicyPagesSettings';
+
 
 // Protected Route Component for Admin
 function ProtectedAdminRoute({ children }) {
@@ -113,7 +122,14 @@ function App() {
                                         <Route path="/admin/users/edit/:id" element={<ProtectedAdminRoute><AdminUserEditPage /></ProtectedAdminRoute>} />
                                         <Route path="/admin/promotions" element={<AdminPromotionsPage />} />
                                         <Route path="/admin/reports" element={<ProtectedAdminRoute><div>Reports Page</div></ProtectedAdminRoute>} />
-                                        <Route path="/admin/settings" element={<ProtectedAdminRoute><div>Settings Page</div></ProtectedAdminRoute>} />
+                                        <Route path="/admin/settings" element={<Settings />} />
+                                        <Route path="/admin/settings/banner" element={<BannerSettings />} />
+                                        <Route path="/admin/settings/promo_section" element={<PromoSectionSettings />} />
+                                        <Route path="/admin/settings/search_slider" element={<SearchSliderSettings />} />
+                                        <Route path="/admin/settings/offers_page" element={<OffersPageSettings />} />
+                                        <Route path="/admin/settings/how_it_works_section" element={<HowItWorksSectionSettings />} />
+                                        <Route path="/admin/settings/promo_banner_section" element={<PromoBannerSectionSettings />} />
+                                        <Route path="/admin/settings/policy_pages" element={<PolicyPagesSettings />} />
                                         <Route path="*" element={<ErrorPage />} />
                                     </Routes>
                                 </LanguageProvider>

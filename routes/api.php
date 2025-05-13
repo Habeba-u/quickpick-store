@@ -9,6 +9,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\PolicyPagesController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -55,11 +57,22 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/promotions/{id}', [PromotionController::class, 'show']);
     Route::put('/promotions/{id}', [PromotionController::class, 'update']);
     Route::delete('/promotions/{id}', [PromotionController::class, 'destroy']);
+    Route::get('/settings/{section}', [SettingsController::class, 'getSettings']);
+    Route::post('/settings/{section}', [SettingsController::class, 'updateSettings']);
+    Route::post('/policy_pages', [PolicyPagesController::class, 'store']);
+    Route::get('/policy_pages', [PolicyPagesController::class, 'index']);
+
 
     });
 });
 
 Route::middleware('auth:sanctum')->withoutMiddleware('throttle')->group(function () {
+    // Public routes
+
+Route::get('/policy_pages/{type}', [PolicyPagesController::class, 'show']);
+
+// Protected route
+
     Route::get('/user', [UserController::class, 'show'])->name('user.show');
 
     Route::get('/user/me', [UserController::class, 'me']);

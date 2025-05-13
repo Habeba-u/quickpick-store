@@ -13,6 +13,11 @@ function OffersPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [bannerContent, setBannerContent] = useState({
+    banner1: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' },
+    banner2: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' },
+    banner3: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' },
+  });
 
   const translations = {
     en: {
@@ -62,19 +67,47 @@ function OffersPage() {
   const t = translations[language];
 
   useEffect(() => {
+    const fetchBannerContent = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/settings/offers_page`, {
+          headers: { 'Accept': 'application/json' },
+          credentials: 'include',
+        });
+        console.log('Fetch offers page content response status:', response.status, response.statusText);
+        if (!response.ok) throw new Error('Failed to fetch offers page settings');
+        const data = await response.json();
+        console.log('Raw offers page content:', data);
+        const contentMap = {
+          banner1: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' },
+          banner2: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' },
+          banner3: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, image: '' },
+        };
+        data.forEach(item => {
+          const bannerMatch = item.key.match(/^banner(\d)_(.+?)_(en|ar)$/);
+          const bannerImageMatch = item.key.match(/^banner(\d)_image$/);
+          if (bannerMatch) {
+            const [, bannerNum, field, lang] = bannerMatch;
+            contentMap[`banner${bannerNum}`][field][lang] = JSON.parse(item.value);
+          } else if (bannerImageMatch) {
+            const [, bannerNum] = bannerImageMatch;
+            contentMap[`banner${bannerNum}`].image = item.image ? `${process.env.REACT_APP_API_URL}/storage/${item.image}` : '';
+          }
+        });
+        console.log('Processed offers page content:', contentMap);
+        setBannerContent(contentMap);
+      } catch (error) {
+        console.error('Error fetching offers page content:', error);
+      }
+    };
+
     const fetchProducts = async () => {
       try {
         setLoading(true);
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/products`, {
-          headers: {
-            'Accept': 'application/json',
-          },
+          headers: { 'Accept': 'application/json' },
         });
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
+        if (!response.ok) throw new Error('Failed to fetch products');
         const data = await response.json();
-        // Filter active products
         const activeProducts = data.filter(product => product.active);
         setProducts(activeProducts);
       } catch (err) {
@@ -84,8 +117,22 @@ function OffersPage() {
         setLoading(false);
       }
     };
+
+    fetchBannerContent();
     fetchProducts();
   }, []);
+
+  // Debug image loading
+  useEffect(() => {
+    const images = [bannerContent.banner1.image, bannerContent.banner2.image, bannerContent.banner3.image];
+    images.forEach((img) => {
+      if (img) {
+        const image = new Image();
+        image.src = img;
+        image.onerror = () => console.error('Failed to load banner image:', img);
+      }
+    });
+  }, [bannerContent]);
 
   const productsSection1 = products.slice(0, 4);
   const productsSection2 = products.slice(4, 8);
@@ -158,10 +205,21 @@ function OffersPage() {
           </Row>
         </Form>
 
-        <Row className={`banner banner-1 mb-5 align-items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <Row
+          className={`banner banner-1 mb-5 align-items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+          style={{
+            backgroundImage: `url(${bannerContent.banner1.image || `${process.env.PUBLIC_URL}/assets/offer-banner1.jpeg`})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <Col md={6} className={language === 'ar' ? 'text-end' : ''}>
-            <h2 className="banner-title">{t.banner1.title}</h2>
-            <p className="banner-text">{t.banner1.text}</p>
+            <h2 className="banner-title">
+              {bannerContent.banner1.title[language] || t.banner1.title}
+            </h2>
+            <p className="banner-text">
+              {bannerContent.banner1.text[language] || t.banner1.text}
+            </p>
           </Col>
           <Col md={6} className={language === 'ar' ? 'text-start' : 'text-end'}>
             <Button as={Link} to="/products" className="banner-btn">
@@ -175,10 +233,21 @@ function OffersPage() {
         </h3>
         {renderProductSection(productsSection1)}
 
-        <Row className={`banner banner-2 mb-5 align-items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <Row
+          className={`banner banner-2 mb-5 align-items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+          style={{
+            backgroundImage: `url(${bannerContent.banner2.image || `${process.env.PUBLIC_URL}/assets/offer-banner2.jpeg`})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <Col md={6} className={language === 'ar' ? 'text-end' : ''}>
-            <h2 className="banner-title">{t.banner2.title}</h2>
-            <p className="banner-text">{t.banner2.text}</p>
+            <h2 className="banner-title">
+              {bannerContent.banner2.title[language] || t.banner2.title}
+            </h2>
+            <p className="banner-text">
+              {bannerContent.banner2.text[language] || t.banner2.text}
+            </p>
           </Col>
           <Col md={6} className={language === 'ar' ? 'text-start' : 'text-end'}>
             <Button as={Link} to="/products" className="banner-btn">
@@ -192,10 +261,21 @@ function OffersPage() {
         </h3>
         {renderProductSection(productsSection2)}
 
-        <Row className={`banner banner-3 mb-5 align-items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <Row
+          className={`banner banner-3 mb-5 align-items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}
+          style={{
+            backgroundImage: `url(${bannerContent.banner3.image || `${process.env.PUBLIC_URL}/assets/offer-banner3.jpeg`})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <Col md={6} className={language === 'ar' ? 'text-end' : ''}>
-            <h2 className="banner-title">{t.banner3.title}</h2>
-            <p className="banner-text">{t.banner3.text}</p>
+            <h2 className="banner-title">
+              {bannerContent.banner3.title[language] || t.banner3.title}
+            </h2>
+            <p className="banner-text">
+              {bannerContent.banner3.text[language] || t.banner3.text}
+            </p>
           </Col>
           <Col md={6} className={language === 'ar' ? 'text-start' : 'text-end'}>
             <Button as={Link} to="/products" className="banner-btn">

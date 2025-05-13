@@ -1,14 +1,55 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Card, Nav, Tab } from 'react-bootstrap';
-import { LanguageContext } from '../context/LanguageContext'; // Import LanguageContext
+import { LanguageContext } from '../context/LanguageContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/HowItWorksSection.css';
 
 function HowItWorksSection() {
-  const { language } = useContext(LanguageContext); // Access language from context
+  const { language } = useContext(LanguageContext);
   const [activeTab, setActiveTab] = useState('variant1');
+  const [content, setContent] = useState({
+    sectionTitle: { en: '', ar: '' },
+    tab1: { en: '', ar: '' },
+    tab2: { en: '', ar: '' },
+    tab3: { en: '', ar: '' },
+    tab4: { en: '', ar: '' },
+    tab5: { en: '', ar: '' },
+    variant1: {
+      cards: [
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+      ],
+      description: { en: '', ar: '' },
+    },
+    variant2: {
+      cards: [
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+      ],
+      description: { en: '', ar: '' },
+    },
+    variant3: {
+      cards: [
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+        { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+      ],
+      description: { en: '', ar: '' },
+    },
+    variant4: {
+      title: { en: '', ar: '' },
+      description: { en: '', ar: '' },
+      descriptionBelow: { en: '', ar: '' },
+    },
+    variant5: {
+      title: { en: '', ar: '' },
+      description: { en: '', ar: '' },
+      descriptionBelow: { en: '', ar: '' },
+    },
+  });
 
-  // Translations
   const translations = {
     en: {
       sectionTitle: 'How does QuickPick work?',
@@ -141,14 +182,106 @@ function HowItWorksSection() {
   };
 
   const t = translations[language];
-  const variants = t;
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/settings/how_it_works_section`, {
+          headers: { 'Accept': 'application/json' },
+          credentials: 'include',
+        });
+        console.log('Fetch how it works content response status:', response.status, response.statusText);
+        if (!response.ok) throw new Error('Failed to fetch how it works section settings');
+        const data = await response.json();
+        console.log('Raw how it works content:', data);
+        const contentMap = {
+          sectionTitle: { en: '', ar: '' },
+          tab1: { en: '', ar: '' },
+          tab2: { en: '', ar: '' },
+          tab3: { en: '', ar: '' },
+          tab4: { en: '', ar: '' },
+          tab5: { en: '', ar: '' },
+          variant1: {
+            cards: [
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+            ],
+            description: { en: '', ar: '' },
+          },
+          variant2: {
+            cards: [
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+            ],
+            description: { en: '', ar: '' },
+          },
+          variant3: {
+            cards: [
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+              { title: { en: '', ar: '' }, subtitle: { en: '', ar: '' } },
+            ],
+            description: { en: '', ar: '' },
+          },
+          variant4: {
+            title: { en: '', ar: '' },
+            description: { en: '', ar: '' },
+            descriptionBelow: { en: '', ar: '' },
+          },
+          variant5: {
+            title: { en: '', ar: '' },
+            description: { en: '', ar: '' },
+            descriptionBelow: { en: '', ar: '' },
+          },
+        };
+
+        data.forEach(item => {
+          const key = item.key;
+          const lang = item.language;
+          try {
+            const value = JSON.parse(item.value);
+            if (key.startsWith('section_title_')) {
+              contentMap.sectionTitle[lang] = value;
+            } else if (key.startsWith('tab')) {
+              const tabNum = key.match(/^tab(\d)_/)[1];
+              contentMap[`tab${tabNum}`][lang] = value;
+            } else if (key.startsWith('variant')) {
+              const variantMatch = key.match(/^variant(\d)_(.+?)_(en|ar)$/);
+              if (variantMatch) {
+                const [, variantNum, field, lang] = variantMatch;
+                if (field.startsWith('card')) {
+                  const cardNum = field.match(/card(\d)/)[1];
+                  const cardField = field.includes('title') ? 'title' : 'subtitle';
+                  contentMap[`variant${variantNum}`].cards[parseInt(cardNum) - 1][cardField][lang] = value;
+                } else {
+                  // Handle description_below to descriptionBelow mapping
+                  const mappedField = field === 'description_below' ? 'descriptionBelow' : field;
+                  contentMap[`variant${variantNum}`][mappedField][lang] = value;
+                }
+              }
+            }
+          } catch (e) {
+            console.error(`Failed to parse value for ${key}:`, item.value);
+          }
+        });
+
+        console.log('Processed how it works content:', contentMap);
+        setContent(contentMap);
+      } catch (error) {
+        console.error('Error fetching how it works content:', error);
+      }
+    };
+    fetchContent();
+  }, []);
 
   return (
     <div className="py-5">
       <Container className="how-it-works-div">
         {/* Title */}
         <h2 className={`section-title mb-4 ${language === 'ar' ? 'text-end' : 'text-start'}`}>
-          {t.sectionTitle}
+          {content.sectionTitle[language] || t.sectionTitle}
         </h2>
 
         <Tab.Container activeKey={activeTab} onSelect={(key) => setActiveTab(key)}>
@@ -157,19 +290,19 @@ function HowItWorksSection() {
             <Col md={9} lg={3}>
               <Nav variant="pills" className={`flex-column ${language === 'ar' ? '' : ''}`}>
                 <Nav.Item>
-                  <Nav.Link eventKey="variant1">{t.tab1}</Nav.Link>
+                  <Nav.Link eventKey="variant1">{content.tab1[language] || t.tab1}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="variant2">{t.tab2}</Nav.Link>
+                  <Nav.Link eventKey="variant2">{content.tab2[language] || t.tab2}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="variant3">{t.tab3}</Nav.Link>
+                  <Nav.Link eventKey="variant3">{content.tab3[language] || t.tab3}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="variant4">{t.tab4}</Nav.Link>
+                  <Nav.Link eventKey="variant4">{content.tab4[language] || t.tab4}</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="variant5">{t.tab5}</Nav.Link>
+                  <Nav.Link eventKey="variant5">{content.tab5[language] || t.tab5}</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Col>
@@ -180,71 +313,83 @@ function HowItWorksSection() {
                 {/* Tab 1: Three Cards */}
                 <Tab.Pane eventKey="variant1">
                   <Row className="justify-content-center">
-                    {variants.variant1.cards.map((card, index) => (
+                    {content.variant1.cards.map((card, index) => (
                       <Col md={10} lg={4} key={index} className="mb-4">
                         <Card className="how-it-works-card">
-                          <Card.Title className="card-title">{card.title}</Card.Title>
+                          <Card.Title className="card-title">
+                            {card.title[language] || t.variant1.cards[index].title}
+                          </Card.Title>
                           <Card.Img
                             src={process.env.PUBLIC_URL + `/assets/howit-${index + 1}.png`}
-                            alt={card.title}
+                            alt={card.title[language] || t.variant1.cards[index].title}
                             className="card-image"
                           />
                           <Card.Subtitle className="card-subtitle">
-                            {card.subtitle}
+                            {card.subtitle[language] || t.variant1.cards[index].subtitle}
                           </Card.Subtitle>
                         </Card>
                       </Col>
                     ))}
                   </Row>
-                  <p className="description">{variants.variant1.description}</p>
+                  <p className="description">
+                    {content.variant1.description[language] || t.variant1.description}
+                  </p>
                 </Tab.Pane>
 
                 {/* Tab 2: Three Cards */}
                 <Tab.Pane eventKey="variant2">
                   <Row className="justify-content-center">
-                    {variants.variant2.cards.map((card, index) => (
+                    {content.variant2.cards.map((card, index) => (
                       <Col md={10} lg={4} key={index} className="mb-4">
                         <Card className="how-it-works-card">
-                          <Card.Title className="card-title">{card.title}</Card.Title>
+                          <Card.Title className="card-title">
+                            {card.title[language] || t.variant2.cards[index].title}
+                          </Card.Title>
                           <Card.Img
                             src={process.env.PUBLIC_URL + `/assets/payment-methods-${index + 1}.png`}
-                            alt={card.title}
+                            alt={card.title[language] || t.variant2.cards[index].title}
                             className="card-image"
                           />
                           <Card.Subtitle className="card-subtitle">
-                            {card.subtitle}
+                            {card.subtitle[language] || t.variant2.cards[index].subtitle}
                           </Card.Subtitle>
                         </Card>
                       </Col>
                     ))}
                   </Row>
-                  <p className="description">{variants.variant2.description}</p>
+                  <p className="description">
+                    {content.variant2.description[language] || t.variant2.description}
+                  </p>
                 </Tab.Pane>
 
                 {/* Tab 3: Three Cards */}
                 <Tab.Pane eventKey="variant3">
                   <Row className="justify-content-center">
-                    {variants.variant3.cards.map((card, index) => (
+                    {content.variant3.cards.map((card, index) => (
                       <Col md={10} lg={4} key={index} className="mb-4">
                         <Card className="how-it-works-card">
-                          <Card.Title className="card-title">{card.title}</Card.Title>
+                          <Card.Title className="card-title">
+                            {card.title[language] || t.variant3.cards[index].title}
+                          </Card.Title>
                           <Card.Img
                             src={
                               index === 2
                                 ? process.env.PUBLIC_URL + '/assets/howit-2.png'
                                 : process.env.PUBLIC_URL + `/assets/order-${index + 1}.png`
                             }
-                            alt={card.title}
+                            alt={card.title[language] || t.variant3.cards[index].title}
                             className="card-image"
                           />
                           <Card.Subtitle className="card-subtitle">
-                            {card.subtitle}
+                            {card.subtitle[language] || t.variant3.cards[index].subtitle}
                           </Card.Subtitle>
                         </Card>
                       </Col>
                     ))}
                   </Row>
-                  <p className="description">{variants.variant3.description}</p>
+                  <p className="description">
+                    {content.variant3.description[language] || t.variant3.description}
+                  </p>
                 </Tab.Pane>
 
                 {/* Tab 4: Single Large Card with Image */}
@@ -255,10 +400,10 @@ function HowItWorksSection() {
                         <Card.Body className={`row ${language === 'ar' ? '' : ''}`}>
                           <Col md={12} lg={8} className="mb-4">
                             <Card.Title className={`large-card-title ${language === 'ar' ? 'text-end' : 'text-start'}`}>
-                              {variants.variant4.title}
+                              {content.variant4.title[language] || t.variant4.title}
                             </Card.Title>
                             <Card.Text className={`large-card-description ${language === 'ar' ? 'text-end' : 'text-start'}`}>
-                              {variants.variant4.description}
+                              {content.variant4.description[language] || t.variant4.description}
                             </Card.Text>
                           </Col>
                           <Col md={12} lg={4} className="mb-4">
@@ -272,7 +417,9 @@ function HowItWorksSection() {
                       </Card>
                     </Col>
                   </Row>
-                  <p className="description">{variants.variant4.descriptionBelow}</p>
+                  <p className="description">
+                    {content.variant4.descriptionBelow[language] || t.variant4.descriptionBelow}
+                  </p>
                 </Tab.Pane>
 
                 {/* Tab 5: Single Large Card with Image */}
@@ -283,10 +430,10 @@ function HowItWorksSection() {
                         <Card.Body className={`row ${language === 'ar' ? '' : ''}`}>
                           <Col md={12} lg={8} className="mb-4">
                             <Card.Title className={`large-card-title ${language === 'ar' ? 'text-end' : 'text-start'}`}>
-                              {variants.variant5.title}
+                              {content.variant5.title[language] || t.variant5.title}
                             </Card.Title>
                             <Card.Text className={`large-card-description ${language === 'ar' ? 'text-end' : 'text-start'}`}>
-                              {variants.variant5.description}
+                              {content.variant5.description[language] || t.variant5.description}
                             </Card.Text>
                           </Col>
                           <Col md={12} lg={4} className="mb-4">
@@ -300,7 +447,9 @@ function HowItWorksSection() {
                       </Card>
                     </Col>
                   </Row>
-                  <p className="description">{variants.variant5.descriptionBelow}</p>
+                  <p className="description">
+                    {content.variant5.descriptionBelow[language] || t.variant5.descriptionBelow}
+                  </p>
                 </Tab.Pane>
               </Tab.Content>
             </Col>

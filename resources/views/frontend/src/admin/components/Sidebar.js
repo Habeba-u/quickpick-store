@@ -84,14 +84,6 @@ function Sidebar() {
         <li className="nav-item">
           <NavLink
             className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-            to="/admin/reports"
-          >
-            <BarChart className="me-2" /> Reports
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink
-            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
             to="/admin/settings"
           >
             <Gear className="me-2" /> Settings

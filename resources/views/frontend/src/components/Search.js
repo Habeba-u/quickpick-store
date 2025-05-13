@@ -16,12 +16,12 @@ function Search() {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [slides, setSlides] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const productsPerPage = 16;
   const location = useLocation();
 
-  // Translations
   const translations = {
     en: {
       searchPlaceholder: 'Search for products',
@@ -36,23 +36,6 @@ function Search() {
       languageLabel: 'Language:',
       loading: 'Loading products...',
       error: 'Error loading products.',
-      slides: [
-        {
-          title: 'Glow with Unstoppable Beauty!',
-          text: 'The Countdown is on! Grab the best deals while stock lasts.',
-          buttonText: 'Order Now',
-        },
-        {
-          title: 'Save Up to 60% Off the Grocery Deals!',
-          text: 'The Countdown is on! Grab the best deals while stock lasts.',
-          buttonText: 'Order Now',
-        },
-        {
-          title: 'A Sparkling Homeware Deal!',
-          text: 'The Countdown is on! Grab the best deals while stock lasts.',
-          buttonText: 'Order Now',
-        },
-      ],
     },
     ar: {
       searchPlaceholder: 'ابحث عن المنتجات',
@@ -67,27 +50,99 @@ function Search() {
       languageLabel: 'اللغة:',
       loading: 'جارٍ تحميل المنتجات...',
       error: 'خطأ في تحميل المنتجات.',
-      slides: [
-        {
-          title: 'تألقي بجمال لا يُضاهى!',
-          text: 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.',
-          buttonText: 'اطلب الآن',
-        },
-        {
-          title: 'وفر حتى 60% على عروض البقالة!',
-          text: 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.',
-          buttonText: 'اطلب الآن',
-        },
-        {
-          title: 'عرض رائع للأدوات المنزلية!',
-          text: 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.',
-          buttonText: 'اطلب الآن',
-        },
-      ],
     },
   };
 
   const t = translations[language];
+
+  useEffect(() => {
+    const fetchSliderContent = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/settings/search_slider`, {
+          headers: { 'Accept': 'application/json' },
+          credentials: 'include',
+        });
+        console.log('Fetch slider response status:', response.status, response.statusText);
+        if (!response.ok) throw new Error('Failed to fetch slider settings');
+        const data = await response.json();
+        console.log('Raw slider settings:', data);
+        const slideMap = {
+          slide1: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, button: { en: '', ar: '' }, image: '' },
+          slide2: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, button: { en: '', ar: '' }, image: '' },
+          slide3: { title: { en: '', ar: '' }, text: { en: '', ar: '' }, button: { en: '', ar: '' }, image: '' },
+        };
+        data.forEach(item => {
+          const slideKey = item.key.split('_')[0];
+          if (item.key.includes('image')) {
+            slideMap[slideKey].image = item.image ? `${process.env.REACT_APP_API_URL}/storage/${item.image}` : '';
+          } else {
+            const field = item.key.split('_')[1];
+            try {
+              slideMap[slideKey][field][item.language] = JSON.parse(item.value);
+            } catch (e) {
+              console.error(`Failed to parse value for ${item.key}:`, item.value);
+            }
+          }
+        });
+        console.log('Processed slider content:', slideMap);
+        setSlides([
+          {
+            image: slideMap.slide1.image || `${process.env.PUBLIC_URL}/assets/offer-banner3.jpeg`,
+            fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
+            title: slideMap.slide1.title[language] || (language === 'ar' ? 'تألقي بجمال لا يُضاهى!' : 'Glow with Unstoppable Beauty!'),
+            text: slideMap.slide1.text[language] || (language === 'ar' ? 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.' : 'The Countdown is on! Grab the best deals while stock lasts.'),
+            buttonText: slideMap.slide1.button[language] || (language === 'ar' ? 'اطلب الآن' : 'Order Now'),
+            buttonLink: '/products',
+          },
+          {
+            image: slideMap.slide2.image || `${process.env.PUBLIC_URL}/assets/offer-banner1.jpeg`,
+            fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
+            title: slideMap.slide2.title[language] || (language === 'ar' ? 'وفر حتى 60% على عروض البقالة!' : 'Save Up to 60% Off the Grocery Deals!'),
+            text: slideMap.slide2.text[language] || (language === 'ar' ? 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.' : 'The Countdown is on! Grab the best deals while stock lasts.'),
+            buttonText: slideMap.slide2.button[language] || (language === 'ar' ? 'اطلب الآن' : 'Order Now'),
+            buttonLink: '/products',
+          },
+          {
+            image: slideMap.slide3.image || `${process.env.PUBLIC_URL}/assets/offer-banner2.jpeg`,
+            fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
+            title: slideMap.slide3.title[language] || (language === 'ar' ? 'عرض رائع للأدوات المنزلية!' : 'A Sparkling Homeware Deal!'),
+            text: slideMap.slide3.text[language] || (language === 'ar' ? 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.' : 'The Countdown is on! Grab the best deals while stock lasts.'),
+            buttonText: slideMap.slide3.button[language] || (language === 'ar' ? 'اطلب الآن' : 'Order Now'),
+            buttonLink: '/products',
+          },
+        ]);
+      } catch (error) {
+        console.error('Error fetching slider content:', error);
+        setSlides([
+          {
+            image: `${process.env.PUBLIC_URL}/assets/offer-banner3.jpeg`,
+            fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
+            title: language === 'ar' ? 'تألقي بجمال لا يُضاهى!' : 'Glow with Unstoppable Beauty!',
+            text: language === 'ar' ? 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.' : 'The Countdown is on! Grab the best deals while stock lasts.',
+            buttonText: language === 'ar' ? 'اطلب الآن' : 'Order Now',
+            buttonLink: '/products',
+          },
+          {
+            image: `${process.env.PUBLIC_URL}/assets/offer-banner1.jpeg`,
+            fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
+            title: language === 'ar' ? 'وفر حتى 60% على عروض البقالة!' : 'Save Up to 60% Off the Grocery Deals!',
+            text: language === 'ar' ? 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.' : 'The Countdown is on! Grab the best deals while stock lasts.',
+            buttonText: language === 'ar' ? 'اطلب الآن' : 'Order Now',
+            buttonLink: '/products',
+          },
+          {
+            image: `${process.env.PUBLIC_URL}/assets/offer-banner2.jpeg`,
+            fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
+            title: language === 'ar' ? 'عرض رائع للأدوات المنزلية!' : 'A Sparkling Homeware Deal!',
+            text: language === 'ar' ? 'العد التنازلي بدأ! اغتنم أفضل العروض قبل نفاد المخزون.' : 'The Countdown is on! Grab the best deals while stock lasts.',
+            buttonText: language === 'ar' ? 'اطلب الآن' : 'Order Now',
+            buttonLink: '/products',
+          },
+        ]);
+      }
+    };
+    fetchSliderContent();
+  }, [language]);
 
   useEffect(() => {
     if (location.state?.fromSearch && location.state?.searchTerm) {
@@ -104,7 +159,6 @@ function Search() {
         setLoading(true);
         const token = localStorage.getItem('token');
 
-        // Fetch categories
         const categoriesResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/categories`, {
           headers: {
             'Accept': 'application/json',
@@ -119,26 +173,23 @@ function Search() {
 
         const categoriesData = await categoriesResponse.json();
         const visibleCategories = categoriesData.filter(category => category.visibility);
-        // Map category names for the dropdown
         const categoryNames = visibleCategories.map(category => ({
           en: category.name,
           ar: category.name_ar || category.name,
         }));
         setCategories(['All', ...categoryNames]);
 
-        // Fetch products
-        const params = {
+        const params = new URLSearchParams({
           search: searchTerm,
           category: selectedCategory === 'All' ? '' : selectedCategory,
           sort: sortOption,
-        };
-        const productsResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/products`, {
+        });
+        const productsResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/products?${params}`, {
           headers: {
             'Accept': 'application/json',
             ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
           },
           credentials: token ? undefined : 'include',
-          params,
         });
 
         if (!productsResponse.ok) {
@@ -199,33 +250,6 @@ function Search() {
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   };
 
-  const slides = [
-    {
-      image: `${process.env.PUBLIC_URL}/assets/offer-banner3.jpeg`,
-      fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
-      title: t.slides[0].title,
-      text: t.slides[0].text,
-      buttonText: t.slides[0].buttonText,
-      buttonLink: '/products',
-    },
-    {
-      image: `${process.env.PUBLIC_URL}/assets/offer-banner1.jpeg`,
-      fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
-      title: t.slides[1].title,
-      text: t.slides[1].text,
-      buttonText: t.slides[1].buttonText,
-      buttonLink: '/products',
-    },
-    {
-      image: `${process.env.PUBLIC_URL}/assets/offer-banner2.jpeg`,
-      fallbackImage: `${process.env.PUBLIC_URL}/assets/placeholder.jpg`,
-      title: t.slides[2].title,
-      text: t.slides[2].text,
-      buttonText: t.slides[2].buttonText,
-      buttonLink: '/products',
-    },
-  ];
-
   if (loading) {
     return (
       <Container className="py-5 text-center">
@@ -245,7 +269,6 @@ function Search() {
   return (
     <div className="search-page">
       <Container className="py-5">
-        {/* Language Switcher */}
         <Row className="mb-4">
           <Col className="text-end">
             <Dropdown onSelect={handleLanguageSelect}>
