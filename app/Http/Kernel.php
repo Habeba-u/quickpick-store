@@ -47,10 +47,11 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
         'admin' => [
-        \App\Http\Middleware\Cors::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-    ],
+            \App\Http\Middleware\Cors::class,
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
     ];
 
     /**
@@ -72,6 +73,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'admin' => \App\Http\Middleware\EnsureIsAdmin::class,
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 }

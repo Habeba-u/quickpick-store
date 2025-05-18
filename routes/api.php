@@ -20,9 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::prefix('admin')->middleware('admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
-    Route::middleware('admin')->withoutMiddleware('throttle')->group(function () {
+    Route::middleware(['auth:sanctum', 'admin'])->withoutMiddleware('throttle')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/user', [AdminAuthController::class, 'user']);
