@@ -36,6 +36,13 @@ function AdminCategoryCreatePage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                setError('Authentication token not found. Please login again.');
+                navigate('/admin/login');
+                return;
+            }
+
             const data = new FormData();
             data.append('name', formData.name);
             data.append('name_ar', formData.name_ar);
@@ -49,18 +56,28 @@ function AdminCategoryCreatePage() {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: data,
-                credentials: 'include', // Include cookies for session
             });
 
-            if (response.ok) {
-                navigate('/admin/categories');
-            } else {
-                const data = await response.json();
-                setError(data.message || 'Error creating category');
+            if (response.status === 401) {
+                setError('Your session has expired. Please login again.');
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                navigate('/admin/login');
+                return;
             }
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                setError(errorData.message || 'Error creating category');
+                return;
+            }
+
+            navigate('/admin/categories');
         } catch (err) {
+            console.error('Error creating category:', err);
             setError('An error occurred. Please try again.');
         }
     };

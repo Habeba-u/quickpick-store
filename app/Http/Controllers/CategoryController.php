@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
@@ -22,6 +23,16 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        Log::info('CategoryController@store: Start of method.');
+        Log::info('CategoryController@store: Request received.');
+        Log::info('CategoryController@store: Authenticated user', ['user' => $request->user()]);
+
+        // Check if the authenticated user is an admin
+        if (!$request->user() || !$request->user()->is_admin) {
+            Log::warning('CategoryController@store: Unauthorized access attempt.', ['user' => $request->user()]);
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
         $data = $request->all();
     if (isset($data['visibility'])) {
         $data['visibility'] = filter_var($data['visibility'], FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);

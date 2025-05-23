@@ -22,7 +22,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
-    Route::middleware(['auth:sanctum', 'admin'])->withoutMiddleware('throttle')->group(function () {
+    Route::middleware(['auth:admin-api'])->withoutMiddleware('throttle')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/user', [AdminAuthController::class, 'user']);
@@ -44,24 +44,10 @@ Route::prefix('admin')->group(function () {
         Route::put('/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
         Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
 
-
-        // Order Routes
-        Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
-        Route::get('/orders/{id}', [OrderController::class, 'show'])->name('admin.orders.show');
-        Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
-        Route::put('/orders/{id}/payment-status', [OrderController::class, 'updatePaymentStatus'])->name('admin.orders.updatePaymentStatus');
-        Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('admin.orders.destroy');
-        // Promotions Routes
-        Route::get('/promotions', [PromotionController::class, 'index']);
-    Route::post('/promotions', [PromotionController::class, 'store']);
-    Route::get('/promotions/{id}', [PromotionController::class, 'show']);
-    Route::put('/promotions/{id}', [PromotionController::class, 'update']);
-    Route::delete('/promotions/{id}', [PromotionController::class, 'destroy']);
-    Route::get('/settings/{section}', [SettingsController::class, 'getSettings']);
-    Route::post('/settings/{section}', [SettingsController::class, 'updateSettings']);
-    Route::post('/policy_pages', [PolicyPagesController::class, 'store']);
-    Route::get('/policy_pages', [PolicyPagesController::class, 'index']);
-
+        // Test route to check if middleware group is reached
+        Route::get('/test-middleware-reach', function () {
+            return response()->json(['message' => 'Middleware group reached and authenticated!', 'user' => request()->user()]);
+        });
 
     });
 });

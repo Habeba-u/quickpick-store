@@ -10,15 +10,15 @@ use Illuminate\Support\Facades\Hash;
 class AdminAuthController extends Controller
 {
     public function login(Request $request)
-    {
-        try {
-            $request->validate([
-                'email' => 'required|email',
-                'password' => 'required|string|min:6',
-            ]);
+{
+    try {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:6',
+        ]);
 
-            $credentials = $request->only('email', 'password');
-            Log::info('Admin login attempt', ['email' => $credentials['email']]);
+        $credentials = $request->only('email', 'password');
+        Log::info('Admin login attempt', ['email' => $credentials['email']]);
 
             // Check if admin exists
             $admin = \App\Models\Admin::where('email', $credentials['email'])->first();
@@ -46,7 +46,7 @@ class AdminAuthController extends Controller
                 'token' => $token,
             ], 200);
 
-        } catch (\Exception $e) {
+    } catch (\Exception $e) {
             Log::error('Admin login error', [
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
@@ -54,8 +54,8 @@ class AdminAuthController extends Controller
                 'file' => $e->getFile()
             ]);
             return response()->json(['message' => 'Server error: ' . $e->getMessage()], 500);
-        }
     }
+}
 
     public function logout(Request $request)
     {
