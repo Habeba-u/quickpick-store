@@ -22,7 +22,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
-    Route::middleware(['auth:admin-api'])->withoutMiddleware('throttle')->group(function () {
+    Route::middleware(['admin'])->withoutMiddleware('throttle')->group(function () {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/user', [AdminAuthController::class, 'user']);
@@ -48,8 +48,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/test-middleware-reach', function () {
             return response()->json(['message' => 'Middleware group reached and authenticated!', 'user' => request()->user()]);
         });
-
     });
+  
 });
 
 Route::middleware('auth:sanctum')->withoutMiddleware('throttle')->group(function () {
