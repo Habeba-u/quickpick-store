@@ -10,7 +10,7 @@ class Admin extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
-    protected $table = 'admins'; // Specify the table name
+    protected $table = 'users'; // Specify the table name
 
     protected $fillable = [
         'name',

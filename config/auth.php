@@ -42,7 +42,7 @@ return [
         ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admins',
+            'provider' => 'users',
         ],
         'api' => [
             'driver' => 'token',
@@ -110,8 +110,8 @@ return [
         'throttle' => 60,
     ],
     'admins' => [
-        'provider' => 'admins',
-        'table' => 'password_resets',
+        'provider' => 'users',
+        'table' => 'users',
         'expire' => 60,
         'throttle' => 60,
     ],
